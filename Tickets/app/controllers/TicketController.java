@@ -5,6 +5,8 @@ import play.data.*;
 import play.*;
 import play.mvc.*;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import views.html.*;
 
 public class TicketController extends Controller {
@@ -36,6 +38,20 @@ public class TicketController extends Controller {
     	return redirect(routes.TicketController.tickets());
     }
 
+    public static Result updateTicket(long id){
+        TicketModel.update(id);
+
+        return redirect(routes.TicketController.updateTicket());
+    }
+
+    public static Result displayTicket(Long id){
+      //*TicketModel var = TicketModel.show(id);
+      //*return ok("hmm"+var.title);
+      return ok(views.html.displayTicketForm.render(TicketModel.show(id), ticketForm));
+    }
+
     static Form<TicketModel> ticketForm = Form.form(TicketModel.class);
+    static Form<TicketModel> displayTicketForm = Form.form(TicketModel.class);
+
 
 }

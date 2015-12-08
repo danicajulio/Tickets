@@ -18,7 +18,6 @@ public class TicketModel extends Model {
   public String title;
   public String desc;
   public String severity;
-
   public String owner;
   public String responsible;
   public String status;
@@ -39,6 +38,24 @@ public class TicketModel extends Model {
 
   public static void delete(Long id) {
   	find.ref(id).delete();
+  }
+
+  public static void update(long id){
+
+    TicketModel ticket = TicketModel.show(id);
+
+
+    ticket.title = "";
+    ticket.desc = "";
+    ticket.severity="";
+    ticket.owner="";
+    ticket.responsible="";
+    ticket.status= "";
+    ticket.save();
+  }
+
+ public static TicketModel show(Long id) {
+    return  find.byId(id);
   }
 
 }
