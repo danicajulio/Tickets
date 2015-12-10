@@ -9,7 +9,8 @@
     <ul>
         @for(tickets <- tickets) {
             <li>
-              <a href="@routes.TicketsController.showTicket(tickets.id)">@tickets.title</a>
+              <a href="@routes.TicketsController.showTicket(tickets.id)">@tickets.title  , @tickets.status</a>
+              
               @form(routes.TicketsController.deleteTicket(tickets.id)) { <input type="submit" value="Delete">  }
             </li>
         }

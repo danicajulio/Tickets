@@ -54,10 +54,10 @@ final static Log _log = LogFactory.getLog(TicketsController.class);
     }
     }
     public static Result editTicket(Long id){
-      //*Ticket var = Ticket.show(id);
+     //*Ticket var = Ticket.show(id);
       //*return ok("hmm"+var.title);
       return ok(views.html.displayTicketForm.render(Ticket.show(id), ticketForm));
-    }
+     }
 
     //* public static Result updateTicket(Long id){
     //*   Ticket.delete(id);
@@ -70,10 +70,11 @@ final static Log _log = LogFactory.getLog(TicketsController.class);
     //* }
 
     public static Result showTicket(Long id){
-      //*Ticket var = Ticket.show(id);
-      //*return ok("hmm"+var.title);
-      return ok(views.html.displayTicketForm.render(Ticket.show(id), ticketForm));
+        Ticket.status(id);
+        return ok(views.html.displayTicketForm.render(Ticket.show(id), ticketForm));
     }
+
+    
 
     static Form<Ticket> ticketForm = Form.form(Ticket.class);
     static Form<Ticket> displayTicketForm = Form.form(Ticket.class);

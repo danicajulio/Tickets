@@ -52,10 +52,15 @@ public class Ticket extends Model {
     ticket.severity = tic.severity;
     ticket.owner = tic.owner;
     ticket.responsible = tic.responsible;
-    ticket.status = tic.status;
-    ticket.date = tic.status;
+    ticket.date = tic.date;
     ticket.comment = tic.comment;
     Logger.debug(tic.title);
+    ticket.save();
+  }
+
+  public static void status (Long id){
+    Ticket ticket = Ticket.show(id);
+    ticket.status = "open";
     ticket.save();
   }
 

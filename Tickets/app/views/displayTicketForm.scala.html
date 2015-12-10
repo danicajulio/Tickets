@@ -8,12 +8,12 @@
 
               <!--
                @tickets.id <br>
+              @tickets.status<br>
               @tickets.title <br>
               @tickets.desc <br>
               @tickets.severity <br>
               @tickets.owner <br>
               @tickets.responsible <br>
-              @tickets.status<br>
               @tickets.date<br> 
               @tickets.comment<br>-->
 
@@ -22,6 +22,13 @@
       <dt><label for="Id">Id</label></dt>
       <dd>
       <input type="text" id="Id" name="Id" value="@tickets.id" readonly>
+      </dd>
+  </dl>
+
+    <dl class=" " id="status_field">
+      <dt><label for="status">status</label></dt>
+      <dd>
+      <input type="text" id="status" name="status" value="@tickets.status" >
       </dd>
   </dl>
 
@@ -60,13 +67,6 @@
       </dd>
   </dl>
 
-  <dl class=" " id="status_field">
-      <dt><label for="status">status</label></dt>
-      <dd>
-      <input type="text" id="status" name="status" value="@tickets.status" >
-      </dd>
-  </dl>
-
   <dl class=" " id="date_field">
       <dt><label for="date">date</label></dt>
       <dd>
@@ -84,3 +84,4 @@
     <input type="submit" value="Update">
   </form>
 }
+
